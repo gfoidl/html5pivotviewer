@@ -51,6 +51,11 @@
 		PivotCollection = new PivotViewer.Models.Collection();
 
 	var methods = {
+        // PivotViewer can be initialised with these options:
+        // Loader: a loader that inherits from ICollectionLoader must be specified.  Currently the project only includes the CXMLLoader.  It takes the URL of the collection as a parameter.
+        // ImageController: defaults to the DeepZoom image controller.
+        // ViewerState: Sets the filters, selected item and chosen view when the PivotViewer first opens
+        // GoogleAPIKey: required to use the map view. 
 		init: function (options) {
 			_self = this;
 			_self.addClass('pv-wrapper');
@@ -188,7 +193,7 @@
 
 		//select first view
 		if (_viewerState.View != null) {
-			if (_viewerState.View != 0 || _viewerState.View != 1) {
+            if (_viewerState.View != 0 && _viewerState.View  != 1) {
 				// Always have to initialize tiles one way or another
 				SelectView(0, true);
 				// Set handled init back to false
