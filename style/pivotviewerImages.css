@@ -1,0 +1,27 @@
+﻿.pv-image-loading {
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-image: url("images/loading.gif");
+}
+.pv-image-loading:after {
+  content: "Lade...";
+  position: relative;
+  left: 35px;
+  top: 1em;
+}
+.pv-image-goout {
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-image: url("images/goout.gif");
+}
+.image-export {
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-image: url("../../images/image-export.png");
+}

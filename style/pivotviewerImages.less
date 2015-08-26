@@ -1,0 +1,26 @@
+﻿.image(@url, @width: 32px, @height: 32px) {
+	background-repeat: no-repeat;
+	width: @width;
+	height: @height;
+	display: inline-block;
+	background-image: url(@url);
+}
+
+&.pv-image-loading {
+	.image("images/loading.gif");
+
+	&:after {
+		content: "Lade...";
+		position: relative;
+		left: 35px;
+		top: 1em;
+	}
+}
+
+&.pv-image-goout {
+	.image("images/goout.gif");
+}
+
+&.image-export {
+	.image("../../images/image-export.png", 16px, 16px);
+}
