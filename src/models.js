@@ -22,9 +22,9 @@ PivotViewer.Models.Collection = Object.subClass({
 		this.Items = [];
 		this.CXMLBase = "";
 		this.ImageBase = "";
-                this.CopyrightName = "";
-                this.CopyrightHref = "";
-                this.MaxRelatedLinks = 0;
+				this.CopyrightName = "";
+				this.CopyrightHref = "";
+				this.MaxRelatedLinks = 0;
 	},
 	GetItemById: function (Id) {
 		for (var i = 0; i < this.Items.length; i++) {
@@ -71,14 +71,14 @@ PivotViewer.Models.Item = Object.subClass({
 		this.Name = Name,
 		this.Description,
 		this.Facets = [];
-                this.Links = [];
+				this.Links = [];
 	}
 });
 
 PivotViewer.Models.ItemLink = Object.subClass({
 	init: function (Name, Href) {
-                 this.Name = Name;
-                 this.Href = Href;
+				 this.Name = Name;
+				 this.Href = Href;
 	}
 });
 

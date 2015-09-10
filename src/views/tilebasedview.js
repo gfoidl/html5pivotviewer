@@ -20,8 +20,8 @@ PivotViewer.Views.TileBasedView = PivotViewer.Views.IPivotViewerView.subClass({
 			var filterindex = $.inArray(this.tiles[i].facetItem.Id, this.currentFilter);
 			//set outer location for all tiles not in the filter
 			if (filterindex >= 0) {
-                               this.tiles[i]._locations[0].destinationx += offsetX;
-                               this.tiles[i]._locations[0].destinationy += offsetY;
+							   this.tiles[i]._locations[0].destinationx += offsetX;
+							   this.tiles[i]._locations[0].destinationy += offsetY;
 			}
 		}
 	},
@@ -53,7 +53,7 @@ PivotViewer.Views.TileBasedView = PivotViewer.Views.IPivotViewerView.subClass({
 		var tileHeight = Math.floor(tileMaxWidth * tileMaxRatio);
 		var canvasRows = Math.ceil(canvasHeight / tileHeight);
 		var canvasColumns = Math.floor(canvasWidth / tileMaxWidth);
-                var paddingX = canvasWidth - (canvasColumns * tileMaxWidth);
+				var paddingX = canvasWidth - (canvasColumns * tileMaxWidth);
 		return { Rows: canvasRows, Columns: canvasColumns, TileMaxWidth: tileMaxWidth, TileHeight: tileHeight, PaddingX : paddingX };
 	},
 
@@ -77,32 +77,32 @@ PivotViewer.Views.TileBasedView = PivotViewer.Views.IPivotViewerView.subClass({
 			if (primer) {
 				for (var i = x.facetItem.Facets.length - 1; i > -1; i -= 1) {
 					if (x.facetItem.Facets[i].Name == field && x.facetItem.Facets[i].FacetValues.length > 0) {
-                                            // If a numeric value could check if value is within filter 
-                                            // bounds but will have been done already
-                                            if ($.isNumeric(x.facetItem.Facets[i].FacetValues[0].Value) )
-					            return primer(x.facetItem.Facets[i].FacetValues[0].Value);
-                                            // If a string facet then could have a number of values.  Only
-                                            // sort on values in the filter 
-                                            else {                      
-                                                for (var j = 0; j < x.facetItem.Facets[i].FacetValues.length; j++) {
-                                                    // Has a filter been set? If so, and it is the same facet as the sort
-                                                    // then sort on the items in the filter where possible (otherwise just 
-                                                    // use the first value.?
-                                                    if (filterValues.length > 0) {
-                                                        for (var k = 0; k < filterValues.length; k++) {
-                                                            if (filterValues[k].facet == field) {
-                                                                 for (var l = 0; l < filterValues[k].facetValue.length; l++) {
-                                                                     if ( x.facetItem.Facets[i].FacetValues[j].Value == filterValues[k].facetValue[l]) {  
-					                                 return primer(x.facetItem.Facets[i].FacetValues[j].Value);
-                                                                     }
-                                                                 }
-                                                             } 
-                                                        }
-                                                    } 
-                                                }
-                                                return primer(x.facetItem.Facets[i].FacetValues[0].Value);
-                                            }
-                                        }
+											// If a numeric value could check if value is within filter 
+											// bounds but will have been done already
+											if ($.isNumeric(x.facetItem.Facets[i].FacetValues[0].Value) )
+								return primer(x.facetItem.Facets[i].FacetValues[0].Value);
+											// If a string facet then could have a number of values.  Only
+											// sort on values in the filter 
+											else {                      
+												for (var j = 0; j < x.facetItem.Facets[i].FacetValues.length; j++) {
+													// Has a filter been set? If so, and it is the same facet as the sort
+													// then sort on the items in the filter where possible (otherwise just 
+													// use the first value.?
+													if (filterValues.length > 0) {
+														for (var k = 0; k < filterValues.length; k++) {
+															if (filterValues[k].facet == field) {
+																 for (var l = 0; l < filterValues[k].facetValue.length; l++) {
+																	 if ( x.facetItem.Facets[i].FacetValues[j].Value == filterValues[k].facetValue[l]) {  
+													 return primer(x.facetItem.Facets[i].FacetValues[j].Value);
+																	 }
+																 }
+															 } 
+														}
+													} 
+												}
+												return primer(x.facetItem.Facets[i].FacetValues[0].Value);
+											}
+										}
 				}
 			}
 			return null;
